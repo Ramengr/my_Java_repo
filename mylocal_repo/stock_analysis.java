@@ -1,3 +1,5 @@
+
+// this class contains the methods neessary for reading the contents of the .csv file.
 package com.company;
 
 import java.io.BufferedReader;
@@ -15,7 +17,7 @@ String filepath = null;
 stock_analysis(String path){
     filepath = path;
 }
-    // reads data from the excel file
+    // reads data from the excel file and extracts them
     public List<String> read_data()
     {
         List<String> l1 = new ArrayList<String>();
@@ -36,6 +38,7 @@ stock_analysis(String path){
         return l1;
     }
 
+    // method gets teh lsit of the column names/headers from the .csv file
     public List<String> get_header() throws IOException {
         String[] s1 = new String[0];
         List<String> keys= new ArrayList<String>();

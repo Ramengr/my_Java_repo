@@ -1,3 +1,5 @@
+//Main java class that performs the reading of data from the file and transfer it to the List which is of type HashMAp.
+
 package com.company;
 
 import java.io.IOException;
@@ -20,6 +22,7 @@ public class Main {
 
     }
 
+    // this below method reads the headers and values passed as the arguments and transfers teh data in te file to a List variable.
     public static List<HashMap<String, Double>> disp_data(List<String> str_arr,List<String> lines)
     {
         List<HashMap<String, Double>> hmap_list = new ArrayList<>();
