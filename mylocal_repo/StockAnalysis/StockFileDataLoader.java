@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class stockFileDataLoader {
+public class StockFileDataLoader {
 
   private final String filepath;
 
-  stockFileDataLoader(String path) {
+  StockFileDataLoader(String path) {
     filepath = path;
   }
 
@@ -54,7 +54,7 @@ public class stockFileDataLoader {
 
 
     } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      System.out.println("data not in correct format");
     }
 
     return columnHeadings;

@@ -11,12 +11,12 @@ public class Main {
 
   public static void main(String[] args) throws IOException {
     // write your code here
-    stockFileDataLoader s1 = new stockFileDataLoader("files/table.csv");
-    stockFileDataDisplay d1 = new stockFileDataDisplay();
+    StockFileDataLoader s1 = new StockFileDataLoader("files/table.csv");
+    StockFileDataDisplay d1 = new StockFileDataDisplay();
 
-    List<HashMap<String, Double>> MappedDatainList = mapStockDataInList(s1.getHeaderFromFile(),
+    List<HashMap<String, Double>> mappedDatainList = mapStockDataInList(s1.getHeaderFromFile(),
         s1.readFileRowData());
-    d1.TransferMappedData(MappedDatainList);
+    d1.transferMappedData(mappedDatainList);
     d1.printDataInList();
 
 
