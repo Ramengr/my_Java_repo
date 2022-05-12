@@ -2,38 +2,33 @@
 package com.company;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class StockFileDataLoader {
+public class LoadStockFileData {
 
   private final String filepath;
 
-  StockFileDataLoader(String path) {
+  LoadStockFileData(String path) {
     filepath = path;
   }
 
 
-  public List<String> readFileRowData() // name convention missed
+  public List<String> fileRowDataReader()
+      throws IOException// name convention missed
   {
     List<String> stockParametervalues = new ArrayList<>();
 
-    BufferedReader rowContentReader;
-
-    try {// implement same with try with resource
-      rowContentReader = new BufferedReader(new FileReader(filepath));//close connection missed
+    try (BufferedReader rowContentReader = new BufferedReader(new FileReader(filepath))) {
+      //close connection missed
       rowContentReader.readLine();
       String rowContent;
       while ((rowContent = rowContentReader.readLine()) != null) {
         stockParametervalues.add(rowContent);
       }
-
-    } catch (IOException e) {
-      System.out.println("details presented in incorrect format");
 
     }
 
@@ -41,10 +36,10 @@ public class StockFileDataLoader {
   }
 
 
-  public List<String> getHeaderFromFile() throws IOException {
-    List<String> columnHeadings = new ArrayList<String>();
-    try {
-      BufferedReader columnHeadingReader = new BufferedReader(new FileReader(filepath));
+  public List<String> headerFromFilegetter() throws IOException {
+    List<String> columnHeadings;
+    try (BufferedReader columnHeadingReader = new BufferedReader(new FileReader(filepath))) {
+
       String columnHeadingsRow = columnHeadingReader.readLine();
 
       String[] columnHeadingsArray;
@@ -53,8 +48,6 @@ public class StockFileDataLoader {
       columnHeadings = Arrays.asList(columnHeadingsArray);
 
 
-    } catch (FileNotFoundException e) {
-      System.out.println("data not in correct format");
     }
 
     return columnHeadings;

@@ -9,7 +9,7 @@ public class StockFileDataDisplay {
 
   List<HashMap<String, Double>> stockDataInList = new LinkedList<>();
 
-  // prints the contents of the list variables
+
   public void printDataInList() {
     System.out.println(stockDataInList);
   }
